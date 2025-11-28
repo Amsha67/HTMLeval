@@ -92,26 +92,46 @@ header p {
     font-weight: 600;
     letter-spacing: 0.03em;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
+    border: none;            
+    cursor: pointer;
 
-    /* Effets d’animation */
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
-        background-color 0.2s ease;
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
-
 
 
 .carte:hover,
 .carte:focus-visible {
     background: linear-gradient(145deg, #a17528, #d49327);
     color: #fff2e0;
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 0 25px rgba(255, 130, 49, 0.6),
-                0 0 8px rgba(255, 180, 80, 0.8) inset;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow:
+        0 0 20px rgba(255, 130, 49, 0.6),
+        0 0 8px rgba(255, 180, 80, 0.8) inset;
     outline: none;
 }
 
+/* Effet au clic*/
+.carte:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow:
+        0 0 10px rgba(255, 130, 49, 0.4),
+        0 0 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+
+/* permet au a d'occuper tout la place dans la grille */
+a {
+    display: inline-block; /*  LE a deviens un block et peut contenir un button */
+}
+
+a > button.carte {  /* sélectionne uniquement les <button class="carte"> directement dans les <a> */
+    width: 100%;  /* le bouton prend 100% de la largeur de a */
+    display: block;
+}
 
 
 /* Section "Comment ça marche ?" */
